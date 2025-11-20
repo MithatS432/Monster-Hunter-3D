@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private CharacterController controller;
+    private Animator anim;
     public float speed = 6f;
     public float jumpForce = 8f;
     public float gravity = -9.81f;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private AudioSource footstepSource;
     public AudioClip[] footstepClips;
     public AudioClip[] waterstepClips;
+    public AudioClip swordSound;
     private bool inWater = false;
 
 
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
         footstepSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
         exitGameButton.onClick.AddListener(() =>
@@ -96,6 +99,11 @@ public class Player : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
             }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("AttackSword");
+            footstepSource.PlayOneShot(swordSound);
         }
 
     }
