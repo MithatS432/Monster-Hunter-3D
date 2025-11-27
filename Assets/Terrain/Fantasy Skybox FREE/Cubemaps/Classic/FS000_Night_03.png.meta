@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99b254ad4e7668d419be526ebb66b549
+guid: df8d1504e61fa6046bbb3b99bf96da1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -51,10 +51,10 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 0
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 0
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -125,5 +125,5 @@ AssetOrigin:
   productId: 18353
   packageName: Fantasy Skybox FREE
   packageVersion: 1.6.5
-  assetPath: Assets/Fantasy Skybox FREE/Panoramics/FS003/FS003_Day_Sunless.png
+  assetPath: Assets/Fantasy Skybox FREE/Cubemaps/Classic/FS000_Night_03.png
   uploadId: 699843

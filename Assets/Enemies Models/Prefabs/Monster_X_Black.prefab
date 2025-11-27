@@ -1705,7 +1705,7 @@ MonoBehaviour:
   shoutSounds:
   - {fileID: 8300000, guid: 227d8db7df0d03e4b88a5e4a0a4c41f5, type: 3}
   - {fileID: 8300000, guid: 126e5d83db9a7cc499140d0e32542a6e, type: 3}
-  enemyHealthbar: {fileID: 0}
+  enemyHealthbar: {fileID: 8452921386989964514, guid: 66295c1c627bc154088f1c7d52536237, type: 3}
   maxHealth: 50
   health: 0
   damage: 10
@@ -1722,6 +1722,10 @@ MonoBehaviour:
   patrolSpeed: 15
   chaseSpeed: 20
   chaseDistance: 50
+  isAttacking: 0
+  canAttack: 0
+  healthbarPrefab: {fileID: 1372576774342475094, guid: 66295c1c627bc154088f1c7d52536237, type: 3}
+  mainCanvas: {fileID: 0}
 --- !u!195 &6200135063455063922
 NavMeshAgent:
   m_ObjectHideFlags: 0
