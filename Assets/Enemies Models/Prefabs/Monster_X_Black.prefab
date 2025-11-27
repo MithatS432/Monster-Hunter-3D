@@ -1493,6 +1493,7 @@ GameObject:
   - component: {fileID: 2520827413532266212}
   - component: {fileID: 8358886463522377350}
   - component: {fileID: 5152833309488948867}
+  - component: {fileID: 6200135063455063922}
   m_Layer: 0
   m_Name: Monster_X_Black
   m_TagString: Enemy
@@ -1566,7 +1567,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1585,7 +1586,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1710,6 +1711,39 @@ MonoBehaviour:
   damage: 10
   bloodEffect: {fileID: 1931931011632292496, guid: 508c1f051879a414b9aefe5bf591a5c8, type: 3}
   healthbarTarget: {fileID: 3633538800621992297}
+  healthbarOffset: {x: 0, y: 30}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolSpeed: 15
+  chaseSpeed: 20
+  chaseDistance: 50
+--- !u!195 &6200135063455063922
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100066}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4511487298061234032
 GameObject:
   m_ObjectHideFlags: 0

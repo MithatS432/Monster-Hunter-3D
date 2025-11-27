@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public AudioClip[] waterstepClips;
     public AudioClip swordSound;
     private bool inWater = false;
+    public AudioClip fireBallSound;
 
 
     public float stepInterval = 0.5f;
@@ -28,6 +30,19 @@ public class Player : MonoBehaviour
 
     public Button exitGameButton;
     public bool isGamePaused = false;
+
+    public GameObject speacialPower;
+    private int superPowerLeft = 5;
+    public TextMeshProUGUI superPowerText;
+    public bool isUseSuperPower = true;
+
+    public Image healthBar;
+    public float maxHealt = 400f;
+    public float currentHealth;
+    public TextMeshProUGUI enemyCountText;
+    public int enemyCount = 0;
+    public bool enemyDeadSuperPower;
+    int attackIndex = 0;
 
     void Start()
     {
@@ -45,6 +60,7 @@ public class Player : MonoBehaviour
             }
 #endif
         });
+        currentHealth = maxHealt;
     }
 
     void Update()
@@ -102,10 +118,38 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            anim.SetTrigger("AttackSword");
-            footstepSource.PlayOneShot(swordSound);
+            anim.SetTrigger("Attack" + attackIndex);
+
+            if (swordSound != null && footstepSource != null)
+            {
+                footstepSource.PlayOneShot(swordSound);
+            }
+
+            attackIndex = (attackIndex + 1) % 2;
         }
 
+
+        if (Input.GetKeyDown(KeyCode.F) && isUseSuperPower && superPowerLeft > 0)
+        {
+            SuperPower();
+            Vector3 spawnPos = playerCamera.position + playerCamera.forward * 1f;
+            Quaternion rot = Quaternion.LookRotation(playerCamera.forward);
+
+            GameObject superPower = Instantiate(speacialPower, spawnPos, rot);
+            AudioSource.PlayClipAtPoint(fireBallSound, transform.position, 1f);
+            Destroy(superPower, 2f);
+        }
+        if (enemyCount == 5 && !enemyDeadSuperPower)
+        {
+            enemyDeadSuperPower = true;
+            superPowerLeft += 5;
+            superPowerText.text = "Left:" + superPowerLeft.ToString();
+        }
+    }
+    void SuperPower()
+    {
+        superPowerLeft--;
+        superPowerText.text = "Left:" + superPowerLeft.ToString();
     }
     void HandleMouseLook()
     {
@@ -150,4 +194,27 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Water"))
             inWater = false;
     }
+    public void GetDamage(float dmg)
+    {
+        currentHealth -= dmg;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealt);
+        UpdateUI();
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void UpdateUI()
+    {
+        float normalized = currentHealth / maxHealt;
+        healthBar.fillAmount = normalized;
+    }
+    void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
 }

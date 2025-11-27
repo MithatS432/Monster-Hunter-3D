@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97c83ef8555216848ba4f98a7496a917
+guid: 88c467166db994146961f1ecc5fc214e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -51,10 +51,10 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 0
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 0
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -125,5 +125,5 @@ AssetOrigin:
   productId: 18353
   packageName: Fantasy Skybox FREE
   packageVersion: 1.6.5
-  assetPath: Assets/Fantasy Skybox FREE/Panoramics/FS003/FS003_Day.png
+  assetPath: Assets/Fantasy Skybox FREE/Cubemaps/Classic/FS000_Day_02.png
   uploadId: 699843
