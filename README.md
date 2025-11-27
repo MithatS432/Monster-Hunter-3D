@@ -6,8 +6,11 @@ Adjusting the movement parts with Seek algorithm and Pursuit algorithms
 Improving the patrolling and chasing part with the Finite State Machine algorithm
 Using inheritance, polymorphism, and abstraction with OOP
 I progressed through 5 different enemies in total
+
 Inheritance-->All monster classes are derived from the EnemyBase class
+
 Polymorphism-->Distances have been adjusted according to their speed, attack and route.
+
 Abstraction-->The die function will be protected, that is, it will be called from derived classes.
 
 # Game Explanation
